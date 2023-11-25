@@ -70,23 +70,29 @@ nineveh_day mebaja_hamer bealeMetqi
 -- calculaitng holidays
 -- pivot point is the day of nineveh
 -- again this sends the number of the day of the year.
-abiy_tsome pivot = pivot + 14
 
-debre_zeit pivot = pivot + 41
-
-hossana pivot = pivot + 62
-
-siklet pivot = pivot + 67
-
-tinsaye pivot = pivot + 69
-
-rikbe_kahnat pivot = pivot + 93
-
-erget pivot = pivot + 108
-
-peraklitos pivot = pivot + 118
-
-tsome_hawaryat pivot = pivot + 119
-
-tsome_dihnet pivot = pivot + 121
-
+findTsomeDay pivot cue 
+    | cue == "abiy tsome" = pivot + 14 
+    | cue == "debre zeyit" = pivot + 41 
+    | cue == "hossana" = pivot + 62 
+    | cue == "siklet" = pivot + 67 
+    | cue == "tinsaye" = pivot + 69 
+    | cue == "rikbe kahnat" = pivot + 93 
+    | cue == "erget" = pivot + 108 
+    | cue == "peraklitos" = pivot + 118 
+    | cue == "tsome hawaryat" = pivot + 119 
+    | cue == "tsome dihnet" = pivot + 121 
+    
+-- Note: there is connection whatsoever between these functions
+-- in the sense that you can plug absolutely any value to them and t
+-- they will give you an answer and the answer is simply correct.
+-- just not correct in your context, your data.
+-- e.g. you can give it wrong metqi or nineveh and it will give you 
+-- some "valid" result, but the result is only wrong in the 
+-- context of the year "2016". it has supposed "correct" values
+-- but haskell doesn't care about that, it just gives you the answer to 
+-- the stupid value you gave it. and maybe lazy evaluation is tied to this too idk
+-- there is no flow of data from one function to the next function
+-- the flow of data exists only in your head.
+-- or if you create some kind of memory with the client app the consumes
+-- this app's data (if ever this is to have an API)
