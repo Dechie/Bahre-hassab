@@ -1,7 +1,7 @@
 module Main where
 
 main :: IO ()
-main = putStrLn "Ethiopian Calendar calculations"
+main = putStrLn "The Ethiopian Calendar calculations"
 
 
 ameteAlem year = year + 5500
